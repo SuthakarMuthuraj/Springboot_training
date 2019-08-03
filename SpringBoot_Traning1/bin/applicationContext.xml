@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean name="bubbleSort" class="com.samples.sortAlg.BubbleSort"></bean>
+	<bean name="quickSort" class="com.samples.sortAlg.QuickSort"></bean>
+
+	<bean name="bubbleBinarySearchimpl" class="com.samples.BinarySearch">
+		<property name="sortInterface" ref="bubbleSort"></property>
+	</bean>
+
+	<bean name="quickBinarySearchimpl" class="com.samples.BinarySearch">
+		<property name="sortInterface" ref="quickSort"></property>
+	</bean>
+
+	<bean name="binaryApp" class="com.samples.BinaryApp">
+		<property name="binarySearchimpl" ref="bubbleBinarySearchimpl"></property>
+		<property name="quickSearchimpl" ref="quickBinarySearchimpl"></property>
+	</bean>
+
+
+</beans>  
